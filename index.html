@@ -7,32 +7,35 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      text-align: center;
       margin: 0;
       padding: 0;
-      color: white;
       background: url('scene.jpg') no-repeat center center fixed;
       background-size: cover;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
     }
 
     h1 {
-      margin-top: 20px;
+      margin-bottom: 20px;
       font-size: 2.5em;
       text-shadow: 2px 2px 5px black;
     }
 
-    .circle-container {
-      position: relative;
-      width: 500px;
-      height: 500px;
-      margin: 50px auto;
-      border-radius: 50%;
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(5, 150px);
+      grid-gap: 15px;
+      justify-content: center;
+      align-items: center;
     }
 
     .box {
-      position: absolute;
-      width: 100px;
-      height: 100px;
+      width: 150px;
+      height: 150px;
       background-color: rgba(0, 0, 0, 0.7);
       color: white;
       font-size: 24px;
@@ -44,7 +47,7 @@
       border: 2px solid rgba(255, 255, 255, 0.5);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
       overflow: hidden;
-      transform-origin: center;
+      position: relative;
     }
 
     .box img {
@@ -63,6 +66,11 @@
       z-index: 10;
     }
 
+    .box span {
+      position: absolute;
+      z-index: 5;
+    }
+
     .box.open span {
       display: none;
     }
@@ -70,24 +78,68 @@
 </head>
 <body>
   <h1>Gratulerer så mye med dagen, elskling!</h1>
-  <div class="circle-container">
+  <div class="grid-container">
     <!-- 15 bokser -->
-    <div class="box" style="top: 0%; left: 50%; transform: translate(-50%, -50%) rotate(0deg) translate(200px) rotate(-0deg);" onmousedown="enlargeImage(this)" onmouseup="resetBox(this)">
+    <div class="box" onmousedown="enlargeImage(this)" onmouseup="resetBox(this)">
       <span>?</span>
       <img src="bilde1.jpg" alt="Bilde 1">
     </div>
-    <div class="box" style="top: 0%; left: 50%; transform: translate(-50%, -50%) rotate(24deg) translate(200px) rotate(-24deg);" onmousedown="enlargeImage(this)" onmouseup="resetBox(this)">
+    <div class="box" onmousedown="enlargeImage(this)" onmouseup="resetBox(this)">
       <span>?</span>
       <img src="bilde2.jpg" alt="Bilde 2">
     </div>
-    <!-- Legg til flere bokser med rotasjoner for 15 elementer -->
-    <!-- Hvert element roteres 360 / 15 grader fra det forrige -->
-    <!-- Eksempel for tredje boks: rotate(48deg) -->
-    <div class="box" style="top: 0%; left: 50%; transform: translate(-50%, -50%) rotate(48deg) translate(200px) rotate(-48deg);" onmousedown="enlargeImage(this)" onmouseup="resetBox(this)">
+    <div class="box" onmousedown="enlargeImage(this)" onmouseup="resetBox(this)">
       <span>?</span>
       <img src="bilde3.jpg" alt="Bilde 3">
     </div>
-    <!-- Fortsett til bilde15.jpg -->
+    <div class="box" onmousedown="enlargeImage(this)" onmouseup="resetBox(this)">
+      <span>?</span>
+      <img src="bilde4.jpg" alt="Bilde 4">
+    </div>
+    <div class="box" onmousedown="enlargeImage(this)" onmouseup="resetBox(this)">
+      <span>?</span>
+      <img src="bilde5.jpg" alt="Bilde 5">
+    </div>
+    <div class="box" onmousedown="enlargeImage(this)" onmouseup="resetBox(this)">
+      <span>?</span>
+      <img src="bilde6.jpg" alt="Bilde 6">
+    </div>
+    <div class="box" onmousedown="enlargeImage(this)" onmouseup="resetBox(this)">
+      <span>?</span>
+      <img src="bilde7.jpg" alt="Bilde 7">
+    </div>
+    <div class="box" onmousedown="enlargeImage(this)" onmouseup="resetBox(this)">
+      <span>?</span>
+      <img src="bilde8.jpg" alt="Bilde 8">
+    </div>
+    <div class="box" onmousedown="enlargeImage(this)" onmouseup="resetBox(this)">
+      <span>?</span>
+      <img src="bilde9.jpg" alt="Bilde 9">
+    </div>
+    <div class="box" onmousedown="enlargeImage(this)" onmouseup="resetBox(this)">
+      <span>?</span>
+      <img src="bilde10.jpg" alt="Bilde 10">
+    </div>
+    <div class="box" onmousedown="enlargeImage(this)" onmouseup="resetBox(this)">
+      <span>?</span>
+      <img src="bilde11.jpg" alt="Bilde 11">
+    </div>
+    <div class="box" onmousedown="enlargeImage(this)" onmouseup="resetBox(this)">
+      <span>?</span>
+      <img src="bilde12.jpg" alt="Bilde 12">
+    </div>
+    <div class="box" onmousedown="enlargeImage(this)" onmouseup="resetBox(this)">
+      <span>?</span>
+      <img src="bilde13.jpg" alt="Bilde 13">
+    </div>
+    <div class="box" onmousedown="enlargeImage(this)" onmouseup="resetBox(this)">
+      <span>?</span>
+      <img src="bilde14.jpg" alt="Bilde 14">
+    </div>
+    <div class="box" onmousedown="enlargeImage(this)" onmouseup="resetBox(this)">
+      <span>?</span>
+      <img src="bilde15.jpg" alt="Bilde 15">
+    </div>
   </div>
 
   <script>
