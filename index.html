@@ -192,27 +192,6 @@
         musicStarted = true;
       }
     }
-    }
-
-    function resetBox(box) {
-      // Skjul bildet og vis spørsmålstegnet igjen
-      const img = box.querySelector('img');
-      img.classList.remove('enlarged');
-      img.style.display = 'none';
-    }
-
-    // Ekstra lytter for å sikre at musikk starter ved klikk hvis den er blokkert
-    document.addEventListener('click', () => {
-      if (!musicStarted) {
-        const audio = document.getElementById('background-music');
-        audio.play().then(() => {
-          console.log("Musikken spiller etter klikk.");
-        }).catch(error => {
-          console.error("Klarte ikke å spille av musikk etter klikk: ", error);
-        });
-        musicStarted = true;
-      }
-    }, { once: true });
   </script>
 </body>
 </html>
