@@ -103,67 +103,67 @@
   </style>
 </head>
 <body>
-  <h1>Gratulerer med dagen, elsker deg!</h1>
+  <h1>Gratulerer med dagen, jeg elsker deg!</h1>
   <audio id="background-music" src="YouShookMeAllNightLong.mp3" preload="auto"></audio>
   <div class="grid-container">
     <!-- Bokser med bilder -->
-    <div class="box" onclick="toggleImage(this)">
+    <div class="box" onmousedown="toggleImage(this)" onmouseup="resetImage(this)">
       <span>?</span>
       <img src="bilde1.jpg" alt="Bilde 1">
     </div>
-    <div class="box" onclick="toggleImage(this)">
+    <div class="box" onmousedown="toggleImage(this)" onmouseup="resetImage(this)">
       <span>?</span>
       <img src="bilde2.jpg" alt="Bilde 2">
     </div>
-    <div class="box" onclick="toggleImage(this)">
+    <div class="box" onmousedown="toggleImage(this)" onmouseup="resetImage(this)">
       <span>?</span>
       <img src="bilde3.jpg" alt="Bilde 3">
     </div>
-    <div class="box" onclick="toggleImage(this)">
+    <div class="box" onmousedown="toggleImage(this)" onmouseup="resetImage(this)">
       <span>?</span>
       <img src="bilde4.jpg" alt="Bilde 4">
     </div>
-    <div class="box" onclick="toggleImage(this)">
+    <div class="box" onmousedown="toggleImage(this)" onmouseup="resetImage(this)">
       <span>?</span>
       <img src="bilde5.jpg" alt="Bilde 5">
     </div>
-    <div class="box" onclick="toggleImage(this)">
+    <div class="box" onmousedown="toggleImage(this)" onmouseup="resetImage(this)">
       <span>?</span>
       <img src="bilde6.jpg" alt="Bilde 6">
     </div>
-    <div class="box" onclick="toggleImage(this)">
+    <div class="box" onmousedown="toggleImage(this)" onmouseup="resetImage(this)">
       <span>?</span>
       <img src="bilde7.jpeg" alt="Bilde 7">
     </div>
-    <div class="box" onclick="toggleImage(this)">
+    <div class="box" onmousedown="toggleImage(this)" onmouseup="resetImage(this)">
       <span>?</span>
       <img src="bilde8.PNG" alt="Bilde 8">
     </div>
-    <div class="box" onclick="toggleImage(this)">
+    <div class="box" onmousedown="toggleImage(this)" onmouseup="resetImage(this)">
       <span>?</span>
       <img src="bilde9.jpg" alt="Bilde 9">
     </div>
-    <div class="box" onclick="toggleImage(this)">
+    <div class="box" onmousedown="toggleImage(this)" onmouseup="resetImage(this)">
       <span>?</span>
       <img src="bilde10.jpg" alt="Bilde 10">
     </div>
-    <div class="box" onclick="toggleImage(this)">
+    <div class="box" onmousedown="toggleImage(this)" onmouseup="resetImage(this)">
       <span>?</span>
       <img src="bilde11.PNG" alt="Bilde 11">
     </div>
-    <div class="box" onclick="toggleImage(this)">
+    <div class="box" onmousedown="toggleImage(this)" onmouseup="resetImage(this)">
       <span>?</span>
       <img src="bilde12.jpg" alt="Bilde 12">
     </div>
-    <div class="box" onclick="toggleImage(this)">
+    <div class="box" onmousedown="toggleImage(this)" onmouseup="resetImage(this)">
       <span>?</span>
       <img src="bilde13.jpg" alt="Bilde 13">
     </div>
-    <div class="box" onclick="toggleImage(this)">
+    <div class="box" onmousedown="toggleImage(this)" onmouseup="resetImage(this)">
       <span>?</span>
       <img src="bilde14.jpg" alt="Bilde 14">
     </div>
-    <div class="box" onclick="toggleImage(this)">
+    <div class="box" onmousedown="toggleImage(this)" onmouseup="resetImage(this)">
       <span>?</span>
       <img src="bilde15.jpg" alt="Bilde 15">
     </div>
@@ -174,13 +174,8 @@
 
     function toggleImage(box) {
       const img = box.querySelector('img');
-      if (img.style.display === 'none' || img.style.display === '') {
-        img.style.display = 'block';
-        img.classList.add('enlarged');
-      } else {
-        img.classList.remove('enlarged');
-        img.style.display = 'none';
-      }
+      img.style.display = 'block';
+      img.classList.add('enlarged');
 
       if (!musicStarted) {
         const audio = document.getElementById('background-music');
@@ -192,10 +187,8 @@
         musicStarted = true;
       }
     }
-    }
 
-    function resetBox(box) {
-      // Skjul bildet og vis spørsmålstegnet igjen
+    function resetImage(box) {
       const img = box.querySelector('img');
       img.classList.remove('enlarged');
       img.style.display = 'none';
