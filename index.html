@@ -5,24 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gratulerer så mye med dagen, elskling!</title>
   <style>
-    body {
+    @font-face {
       font-family: 'Rock Salt';
-  src: url('RockSalt-Regular.ttf') format('truetype');
-}
+      src: url('RockSalt-Regular.ttf') format('truetype');
+    }
 
-h1 {
-  font-family: 'Rock Salt', cursive;
-  font-size: 3em;
-  color: crimson;
-  text-shadow: 2px 2px 5px black, 0 0 10px crimson, 0 0 15px red;
-  text-transform: uppercase;
-  text-align: center;
+    body {
+      font-family: 'Rock Salt', cursive;
+      margin: 0;
+      padding: 0;
+      background: url('scene.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
     }
 
     h1 {
+      font-size: 3em;
+      color: crimson;
+      text-shadow: 2px 2px 5px black, 0 0 10px crimson, 0 0 15px red;
+      text-transform: uppercase;
+      text-align: center;
       margin-bottom: 20px;
-      font-size: 2.5em;
-      text-shadow: 2px 2px 5px black;
     }
 
     .grid-container {
@@ -46,7 +54,6 @@ h1 {
       border-radius: 10px;
       border: 2px solid rgba(255, 255, 255, 0.5);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-      overflow: visible; /* Endret fra hidden til visible */
       position: relative;
     }
 
@@ -56,13 +63,12 @@ h1 {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      transition: transform 0.3s ease, visibility 0.3s;
+      transition: transform 0.3s ease;
     }
 
     .box img.enlarged {
       display: block;
-      transform: translate(-50%, -50%) scale(3); /* 300% forstørrelse */
-      visibility: visible;
+      transform: translate(-50%, -50%) scale(3);
       z-index: 10;
     }
 
@@ -70,16 +76,11 @@ h1 {
       position: relative;
       z-index: 5;
     }
-
-    .box.open span {
-      display: none;
-    }
   </style>
 </head>
 <body>
-  <h1>Gratulerer så mye med dagen, elskling!</h1>
+  <h1>Rock on, elskling! Gratulerer med dagen!</h1>
   <div class="grid-container">
-    <!-- 15 bokser -->
     <div class="box" onmousedown="enlargeImage(this)" onmouseup="resetBox(this)">
       <span>?</span>
       <img src="bilde1.jpg" alt="Bilde 1">
@@ -92,7 +93,7 @@ h1 {
       <span>?</span>
       <img src="bilde3.jpg" alt="Bilde 3">
     </div>
-  <div class="box" onmousedown="enlargeImage(this)" onmouseup="resetBox(this)">
+    <div class="box" onmousedown="enlargeImage(this)" onmouseup="resetBox(this)">
       <span>?</span>
       <img src="bilde4.jpg" alt="Bilde 4">
     </div>
