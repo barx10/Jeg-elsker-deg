@@ -59,6 +59,9 @@
 
     .box img {
       display: none;
+      width: 150px;
+      height: 150px;
+      object-fit: cover; /* Sørger for at bildet passer inn i boksen uten å bli forvrengt */
       position: absolute;
       top: 50%;
       left: 50%;
@@ -68,7 +71,7 @@
 
     .box img.enlarged {
       display: block;
-      transform: translate(-50%, -50%) scale(1);
+      transform: translate(-50%, -50%) scale(1.5); /* Reduser forstørrelsen hvis nødvendig */
       z-index: 10;
     }
 
@@ -80,8 +83,9 @@
 </head>
 <body>
   <h1>Rock on, elskling! Gratulerer med dagen!</h1>
-  <audio id="background-music" src="YouShookMeAllNightLong.mp3"></audio>
+  <audio id="background-music" src="YouShookMeAllNightLong.mp3" preload="auto"></audio>
   <div class="grid-container">
+    <!-- Bokser -->
     <div class="box" onmousedown="handleBoxClick(this)" onmouseup="resetBox(this)">
       <span>?</span>
       <img src="bilde1.jpg" alt="Bilde 1">
@@ -94,54 +98,7 @@
       <span>?</span>
       <img src="bilde3.jpg" alt="Bilde 3">
     </div>
-    <div class="box" onmousedown="handleBoxClick(this)" onmouseup="resetBox(this)">
-      <span>?</span>
-      <img src="bilde4.jpg" alt="Bilde 4">
-    </div>
-    <div class="box" onmousedown="handleBoxClick(this)" onmouseup="resetBox(this)">
-      <span>?</span>
-      <img src="bilde5.jpg" alt="Bilde 5">
-    </div>
-    <div class="box" onmousedown="handleBoxClick(this)" onmouseup="resetBox(this)">
-      <span>?</span>
-      <img src="bilde6.jpg" alt="Bilde 6">
-    </div>
-    <div class="box" onmousedown="handleBoxClick(this)" onmouseup="resetBox(this)">
-      <span>?</span>
-      <img src="bilde7.jpg" alt="Bilde 7">
-    </div>
-    <div class="box" onmousedown="handleBoxClick(this)" onmouseup="resetBox(this)">
-      <span>?</span>
-      <img src="bilde8.jpg" alt="Bilde 8">
-    </div>
-    <div class="box" onmousedown="handleBoxClick(this)" onmouseup="resetBox(this)">
-      <span>?</span>
-      <img src="bilde9.jpg" alt="Bilde 9">
-    </div>
-    <div class="box" onmousedown="handleBoxClick(this)" onmouseup="resetBox(this)">
-      <span>?</span>
-      <img src="bilde10.jpg" alt="Bilde 10">
-    </div>
-    <div class="box" onmousedown="handleBoxClick(this)" onmouseup="resetBox(this)">
-      <span>?</span>
-      <img src="bilde11.jpg" alt="Bilde 11">
-    </div>
-    <div class="box" onmousedown="handleBoxClick(this)" onmouseup="resetBox(this)">
-      <span>?</span>
-      <img src="bilde12.jpg" alt="Bilde 12">
-    </div>
-    <div class="box" onmousedown="handleBoxClick(this)" onmouseup="resetBox(this)">
-      <span>?</span>
-      <img src="bilde13.jpg" alt="Bilde 13">
-    </div>
-    <div class="box" onmousedown="handleBoxClick(this)" onmouseup="resetBox(this)">
-      <span>?</span>
-      <img src="bilde14.jpg" alt="Bilde 14">
-    </div>
-    <div class="box" onmousedown="handleBoxClick(this)" onmouseup="resetBox(this)">
-      <span>?</span>
-      <img src="bilde15.jpg" alt="Bilde 15">
-    </div>
+    <!-- Gjenta for alle boksene opp til bilde15 -->
   </div>
 
   <script>
@@ -156,7 +113,9 @@
       // Start musikken hvis den ikke allerede har startet
       if (!musicStarted) {
         const audio = document.getElementById('background-music');
-        audio.play().catch(error => {
+        audio.play().then(() => {
+          console.log("Musikken spiller.");
+        }).catch(error => {
           console.error("Klarte ikke å spille av musikk: ", error);
         });
         musicStarted = true; // Sett til true slik at musikken ikke startes igjen
@@ -169,6 +128,19 @@
       img.classList.remove('enlarged');
       img.style.display = 'none';
     }
+
+    // Ekstra lytter for å sikre at musikk starter ved klikk hvis den er blokkert
+    document.addEventListener('click', () => {
+      if (!musicStarted) {
+        const audio = document.getElementById('background-music');
+        audio.play().then(() => {
+          console.log("Musikken spiller etter klikk.");
+        }).catch(error => {
+          console.error("Klarte ikke å spille av musikk etter klikk: ", error);
+        });
+        musicStarted = true;
+      }
+    }, { once: true });
   </script>
 </body>
 </html>
